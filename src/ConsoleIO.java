@@ -24,11 +24,14 @@ public class ConsoleIO {
         try {
             File file = new File(fileName);
             if (file.exists()) {
+
                 inputStream = new Scanner(file);
                 System.out.println("File has been uploaded");
+
             } else {
                 System.out.println("File not found");
             }
+
         } catch (Exception e) {
             System.out.println("Error while reading file " + fileName);
             inputStream.close();
@@ -37,6 +40,7 @@ public class ConsoleIO {
             // reads data from file
             while (inputStream.hasNextLine()) {
                 String line = inputStream.nextLine();
+
                 String[] order = line.split(",");
                 int rank = Integer.parseInt(order[0]);
                 String maleName = order[1];
